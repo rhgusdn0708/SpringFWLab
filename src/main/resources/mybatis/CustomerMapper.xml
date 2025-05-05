@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mylab.customer.mapper.CustomerMapper">
+    <resultMap id="customerResult" type="CustomerVO">
+        <result property="id" column="id"/>
+        <result property="email" column="email"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="entryDate" column="entry_date"/>
+    </resultMap>
+    
+    <select id="selectCustomer" parameterType="int" resultMap="customerResult">
+        SELECT * FROM customer WHERE id = #{id}
+    </select>
+    
+    <select id="selectAllCustomer" resultMap="customerResult">
+        SELECT * FROM customer
+    </select>
+    
+    <insert id="insertCustomer" parameterType="CustomerVO">
+        INSERT INTO customer (email, name, age) 
+        VALUES (#{email}, #{name}, #{age})
+    </insert>
+</mapper>

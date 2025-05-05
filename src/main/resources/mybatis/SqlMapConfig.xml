@@ -11,8 +11,13 @@
     
 	<typeAliases>
 		<typeAlias alias="User" type="myspring.user.vo.UserVO" />
+		<typeAlias type="mylab.customer.vo.CustomerVO" alias="CustomerVO"/>		
 	</typeAliases>
-
+	
+	 <mappers>
+        <mapper resource="mybatis/CustomerMapper.xml"/>
+    </mappers>
+		
 </configuration>
 
 
